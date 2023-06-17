@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Painter : MonoBehaviour
+public class BoardInput : MonoBehaviour
 {
     Texture2D drawTexture;
     Color[] buffer;
@@ -21,7 +21,16 @@ public class Painter : MonoBehaviour
 
     public void Draw(Vector2 p)
     {
-        buffer.SetValue(Color.black, (int)p.x + 256 * (int)p.y);
+        for (int x = 0; x < 256; x++)
+        {
+            for (int y = 0; y < 256; y++)
+            {
+                if ((p - new Vector2(x, y)).magnitude < 5)
+                {
+                    buffer.SetValue(Color.black, x + 256 * y);
+                }
+            }
+        }
     }
 
 
@@ -42,6 +51,4 @@ public class Painter : MonoBehaviour
         }
 
     }
-
-
 }
