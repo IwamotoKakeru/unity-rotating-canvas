@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BoardMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] private float rotationSpeed = 120.0f;
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
     }
 }
