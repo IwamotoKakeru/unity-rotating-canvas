@@ -7,6 +7,8 @@ public class BoardInput : MonoBehaviour
     Texture2D drawTexture;
     Color[] buffer;
 
+    private Vector2 _prevPosition;
+
     void Start()
     {
         Texture2D mainTexture = (Texture2D)GetComponent<Renderer>().material.mainTexture;
@@ -15,7 +17,12 @@ public class BoardInput : MonoBehaviour
         buffer = new Color[pixels.Length];
         pixels.CopyTo(buffer, 0);
 
-        drawTexture = new Texture2D(mainTexture.width, mainTexture.height, TextureFormat.RGBA32, false);
+        drawTexture = new Texture2D(
+            mainTexture.width,
+            mainTexture.height,
+            TextureFormat.RGBA32,
+            false
+        );
         drawTexture.filterMode = FilterMode.Point;
     }
 
@@ -33,13 +40,27 @@ public class BoardInput : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
+            if (_prevPosition == Vector2.zero)
+            {
+                _prevPosition = Input.mousePosition;
+            }
+
+            Vector2 endPosition = Input.mousePosition;
+
+            float lineLength = Vector2.Distance(_prevPosition, endPosition);
+
+            int lerpCountAdjustNum = 5;
+            int lerpCount = Mathf.CeilToInt(lineLength / lerpCountAdjustNum);
+
+            for (int i = 1; i <= lerpCount; i++) { }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 Draw(hit.textureCoord * 256);
@@ -49,6 +70,5 @@ public class BoardInput : MonoBehaviour
             drawTexture.Apply();
             GetComponent<Renderer>().material.mainTexture = drawTexture;
         }
-
     }
 }
