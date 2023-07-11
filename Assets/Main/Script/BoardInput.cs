@@ -40,7 +40,7 @@ public class BoardInput : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
         {
@@ -56,19 +56,31 @@ public class BoardInput : MonoBehaviour
             int lerpCountAdjustNum = 5;
             int lerpCount = Mathf.CeilToInt(lineLength / lerpCountAdjustNum);
 
-            for (int i = 1; i <= lerpCount; i++) { }
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            for (int i = 1; i <= lerpCount; i++)
             {
-                Draw(hit.textureCoord * 256);
+                float lerpWeight = (float)i / lerpCount;
+
+                Vector3 lerpPosition = Vector2.Lerp(_prevPosition, Input.mousePosition, lerpWeight);
+
+                Ray ray = Camera.main.ScreenPointToRay(lerpPosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, 100.0f))
+                {
+                    Draw(hit.textureCoord * 256);
+                }
+
+                drawTexture.SetPixels(buffer);
+                drawTexture.Apply();
+                GetComponent<Renderer>().material.mainTexture = drawTexture;
             }
 
-            drawTexture.SetPixels(buffer);
-            drawTexture.Apply();
-            GetComponent<Renderer>().material.mainTexture = drawTexture;
+            _prevPosition = Input.mousePosition;
+
+        }
+        else
+        {
+            _prevPosition = Vector2.zero;
         }
     }
 }
