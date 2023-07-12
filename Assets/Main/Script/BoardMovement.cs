@@ -12,7 +12,11 @@ public class BoardMovement : MonoBehaviour
 
     void Update()
     {
-        
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+    }
+
+    public void SetRotationSpeed(float setRotationSpeed)
+    {
+        rotationSpeed = setRotationSpeed;
     }
 }

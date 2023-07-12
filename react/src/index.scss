@@ -2,5 +2,26 @@ scroll {
   flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 40px;
+  padding: 100px;
+  height: 100%;
+}
+
+text {
+  font-size:100px;
+  text-align: center;
+}
+
+  button {
+    font-size: 64px;
+    margin:4px;
+    color: white;
+    &.reset {
+      background-color: green;
+    }
+    &.minus{
+      background-color: blue;
+    }
+    &.plus{
+      background-color: red;
+    }
 }

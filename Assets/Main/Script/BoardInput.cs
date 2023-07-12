@@ -40,7 +40,7 @@ public class BoardInput : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButton(0))
         {
