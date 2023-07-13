@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,7 +41,7 @@ public class BoardInput : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButton(0))
         {
