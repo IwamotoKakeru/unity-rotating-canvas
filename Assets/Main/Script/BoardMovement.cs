@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BoardMovement : MonoBehaviour
 {
 
@@ -18,5 +19,9 @@ public class BoardMovement : MonoBehaviour
     public void SetRotationSpeed(float setRotationSpeed)
     {
         rotationSpeed = setRotationSpeed;
+    }
+
+    public float GetRotationSpeed(){
+        return rotationSpeed;
     }
 }

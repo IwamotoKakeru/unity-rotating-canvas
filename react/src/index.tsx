@@ -1,20 +1,35 @@
-import { render } from "@reactunity/renderer";
+import { ReactUnity, render, useGlobals } from "@reactunity/renderer";
 import "./index.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
-  const rotationSpeed:number = new Interop.UnityEngine.
+  const globals = useGlobals();
+  const boardMovement = globals.Board.GetComponent("BoardMovement");
+
   return (
     <scroll>
-      <text>{count.toString()}</text>
-      <button className="plus" onClick={() => setCount(count + 1)}>
+      <text>{boardMovement.GetRotationSpeed()}</text>
+      <button
+        className="plus"
+        onClick={() =>
+          boardMovement.SetRotationSpeed(boardMovement.GetRotationSpeed() + 10)
+        }
+      >
         plus
       </button>
-      <button className="minus" onClick={() => setCount(count - 1)}>
+      <button
+        className="minus"
+        onClick={() =>
+          boardMovement.SetRotationSpeed(boardMovement.GetRotationSpeed() - 10)
+        }
+      >
         minus
       </button>
-      <button className="reset" onClick={() => setCount(0)}>
+      <button
+        className="reset"
+        onClick={() => boardMovement.SetRotationSpeed(0)}
+      >
         reset
       </button>
     </scroll>
