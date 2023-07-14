@@ -9,11 +9,11 @@ function App() {
 
   // 回転速度の設定
   const [rotationSpeed, SetRotationSpeed] = useState(
-    boardMovement.GetRotationSpeed()
+    boardMovement.RotationSpeed
   );
   const handleRotationSpeed = (speedValue) => {
     SetRotationSpeed(speedValue);
-    boardMovement.SetRotationSpeed(speedValue);
+    boardMovement.RotationSpeed = speedValue;
   };
 
   return (
