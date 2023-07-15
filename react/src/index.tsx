@@ -1,6 +1,7 @@
-import { ReactUnity, render, useGlobals } from "@reactunity/renderer";
+import { useState } from "react";
 import "./index.scss";
-import { useRef, useState } from "react";
+import { render, useGlobals } from "@reactunity/renderer";
+import { Slider } from "@reactunity/material";
 
 function App() {
   // ReactUnity 初期化
@@ -34,6 +35,7 @@ function App() {
       <button className="reset" onClick={() => handleRotationSpeed(0.0)}>
         reset
       </button>
+      <Slider />
     </scroll>
   );
 }

@@ -1512,6 +1512,14 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@reactunity/material@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@reactunity/material/-/material-0.15.0.tgz#cdea6026128afeab190225ac56a69c26a29e17f4"
+  integrity sha512-dbWCi1e5mOpon6IZeRe1MKMkKuy577WIW7Ya+GXfyEyrViPQxyBai242+yp0UQatOpRWSUldVGlz3TPy8lvEwA==
+  dependencies:
+    clsx "^1.2.1"
+    memoize-one "^6.0.0"
+
 "@reactunity/renderer@^0.15.2":
   version "0.15.2"
   resolved "https://registry.yarnpkg.com/@reactunity/renderer/-/renderer-0.15.2.tgz#615846c0502aa936dce8f4b62dc2d7ee7c0dd099"
@@ -2807,6 +2815,11 @@ cliui@^8.0.1:
     string-width "^4.2.0"
     strip-ansi "^6.0.1"
     wrap-ansi "^7.0.0"
+
+clsx@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
 co@^4.6.0:
   version "4.6.0"
@@ -5154,6 +5167,11 @@ memfs@^3.1.2, memfs@^3.4.3:
   integrity sha512-EGowvkkgbMcIChjMTMkESFDbZeSh8xZ7kNSF0hAiAN4Jh6jgHCRS0Ga/+C8y6Au+oqpezRHCfPsmJ2+DwAgiwQ==
   dependencies:
     fs-monkey "^1.0.4"
+
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
+  integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
 
 merge-descriptors@1.0.1:
   version "1.0.1"
