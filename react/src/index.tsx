@@ -20,18 +20,16 @@ function App() {
     <scroll>
       <text>{rotationSpeed}</text>
       <button
-        className="plus"
         onClick={() => handleRotationSpeed(rotationSpeed + 10)}
       >
         plus
       </button>
       <button
-        className="minus"
         onClick={() => handleRotationSpeed(rotationSpeed - 10)}
       >
         minus
       </button>
-      <button className="reset" onClick={() => handleRotationSpeed(0.0)}>
+      <button onClick={() => handleRotationSpeed(0.0)}>
         reset
       </button>
     </scroll>
