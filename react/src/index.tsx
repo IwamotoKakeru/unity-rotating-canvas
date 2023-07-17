@@ -1,6 +1,5 @@
-import { ReactUnity, render, useGlobals } from "@reactunity/renderer";
-import "./index.scss";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { render, useGlobals } from "@reactunity/renderer";
 
 function App() {
   // ReactUnity 初期化
