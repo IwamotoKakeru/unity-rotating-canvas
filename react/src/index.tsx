@@ -17,6 +17,8 @@ function App() {
     boardMovement.RotationSpeed = speedValue;
   };
 
+  const changeSlider = () => {};
+
   return (
     <scroll>
       <text>{rotationSpeed}</text>
@@ -35,7 +37,13 @@ function App() {
       <button className="reset" onClick={() => handleRotationSpeed(0.0)}>
         reset
       </button>
-      <Slider />
+      <Slider
+        direction="vertical"
+        min={-999}
+        max={999}
+        value={rotationSpeed}
+        onChange={handleRotationSpeed}
+      />
     </scroll>
   );
 }
