@@ -22,20 +22,23 @@ function App() {
     boardMovement.RotationSpeed = speedValue;
   };
 
-  const changeSlider = () => {};
+  // UI用定数の宣言
+  const INCREMENT_NUM: number = 10;
+  const MAX_ROTATION_SPEED: number = 256;
+  const MIN_ROTATION_SPEED: number = -256;
 
   return (
     <scroll>
       <text>{rotationSpeed}</text>
       <button
         className="plus"
-        onClick={() => handleRotationSpeed(rotationSpeed + 10)}
+        onClick={() => handleRotationSpeed(rotationSpeed + INCREMENT_NUM)}
       >
         plus
       </button>
       <button
         className="minus"
-        onClick={() => handleRotationSpeed(rotationSpeed - 10)}
+        onClick={() => handleRotationSpeed(rotationSpeed - INCREMENT_NUM)}
       >
         minus
       </button>
@@ -44,8 +47,8 @@ function App() {
       </button>
       <Slider
         direction="vertical"
-        min={-999}
-        max={999}
+        min={MIN_ROTATION_SPEED}
+        max={MAX_ROTATION_SPEED}
         value={rotationSpeed}
         onChange={handleRotationSpeed}
       />
