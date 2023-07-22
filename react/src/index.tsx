@@ -24,35 +24,38 @@ function App() {
 
   // UI用定数の宣言
   const INCREMENT_NUM: number = 10;
-  const MAX_ROTATION_SPEED: number = 256;
-  const MIN_ROTATION_SPEED: number = -256;
+  const MAX_ROTATION_SPEED: number = 512;
+  const MIN_ROTATION_SPEED: number = -MAX_ROTATION_SPEED;
 
   return (
-    <scroll>
+    <div>
       <text>{rotationSpeed}</text>
-      <button
-        className="plus"
-        onClick={() => handleRotationSpeed(rotationSpeed + INCREMENT_NUM)}
-      >
-        plus
-      </button>
-      <button
-        className="minus"
-        onClick={() => handleRotationSpeed(rotationSpeed - INCREMENT_NUM)}
-      >
-        minus
-      </button>
-      <button className="reset" onClick={() => handleRotationSpeed(0.0)}>
-        reset
-      </button>
-      <Slider
-        direction="vertical"
-        min={MIN_ROTATION_SPEED}
-        max={MAX_ROTATION_SPEED}
-        value={rotationSpeed}
-        onChange={handleRotationSpeed}
-      />
-    </scroll>
+      <scroll>
+        <button
+          className="plus"
+          onClick={() => handleRotationSpeed(rotationSpeed + INCREMENT_NUM)}
+        >
+          +
+        </button>
+        <button className="reset" onClick={() => handleRotationSpeed(0.0)}>
+          0
+        </button>
+        <button
+          className="minus"
+          onClick={() => handleRotationSpeed(rotationSpeed - INCREMENT_NUM)}
+        >
+          -
+        </button>
+        <Slider
+          className="Slider"
+          direction="vertical"
+          min={MIN_ROTATION_SPEED}
+          max={MAX_ROTATION_SPEED}
+          value={rotationSpeed}
+          onChange={handleRotationSpeed}
+        />
+      </scroll>
+    </div>
   );
 }
 

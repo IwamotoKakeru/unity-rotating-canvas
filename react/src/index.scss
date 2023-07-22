@@ -1,19 +1,19 @@
+text {
+  font-size:100px;
+}
+
 scroll {
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 100px;
   height: 100%;
 }
 
-text {
-  font-size:100px;
-  text-align: center;
-}
 
-  button {
+button {
     font-size: 64px;
-    margin:4px;
+    margin:8px;
     color: white;
     &.reset {
       background-color: green;
@@ -24,4 +24,9 @@ text {
     &.plus{
       background-color: red;
     }
+}
+
+Slider {
+  size: 256px;
+  background: transparent;
 }
