@@ -9,6 +9,8 @@ public class BoardInput : MonoBehaviour
 
     private int textureWidth = 256, textureHeight = 256;
 
+    Vector2 prevUVPosition = Vector2.zero;
+
     void Start()
     {
         Texture2D mainTexture = (Texture2D)GetComponent<Renderer>().material.mainTexture;
@@ -26,13 +28,13 @@ public class BoardInput : MonoBehaviour
         drawTexture.filterMode = FilterMode.Point;
     }
 
-    public void Draw(Vector2 p)
+    public void Draw(Vector2 p, float thickness)
     {
         for (int x = 0; x < textureWidth; x++)
         {
             for (int y = 0; y < textureHeight; y++)
             {
-                if ((p - new Vector2(x, y)).magnitude < 5)
+                if ((p - new Vector2(x, y)).magnitude < thickness)
                 {
                     buffer.SetValue(Color.black, x + textureHeight * y);
                 }
@@ -60,7 +62,11 @@ public class BoardInput : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 Vector2 uvPosition = hit.textureCoord * textureWidth;
-                Draw(uvPosition);
+                if (prevUVPosition == Vector2.zero) prevUVPosition = uvPosition;
+
+                Draw(uvPosition, 4);
+
+                prevUVPosition = uvPosition;
             }
 
             drawTexture.SetPixels(buffer);
