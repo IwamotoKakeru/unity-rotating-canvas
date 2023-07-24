@@ -7,8 +7,6 @@ public class BoardInput : MonoBehaviour
     Texture2D drawTexture;
     Color[] buffer;
 
-    private int textureWidth = 256, textureHeight = 256;
-
     Vector2 prevUVPosition = Vector2.zero;
 
     void Start()
@@ -30,13 +28,14 @@ public class BoardInput : MonoBehaviour
 
     public void Draw(Vector2 p, float thickness)
     {
-        for (int x = 0; x < textureWidth; x++)
+        for (int x = 0; x < drawTexture.width; x++)
         {
-            for (int y = 0; y < textureHeight; y++)
+            for (int y = 0; y < drawTexture.height; y++)
             {
-                if ((p - new Vector2(x, y)).magnitude < thickness)
+                // 距離の二乗と太さの二乗を比較
+                if ((p - new Vector2(x, y)).sqrMagnitude < thickness*thickness)
                 {
-                    buffer.SetValue(Color.black, x + textureHeight * y);
+                    buffer.SetValue(Color.black, x + drawTexture.height * y);
                 }
             }
         }
@@ -61,7 +60,7 @@ public class BoardInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
-                Vector2 uvPosition = hit.textureCoord * textureWidth;
+                Vector2 uvPosition = hit.textureCoord * drawTexture.width;
                 if (prevUVPosition == Vector2.zero) prevUVPosition = uvPosition;
 
                 Draw(uvPosition, 4);
