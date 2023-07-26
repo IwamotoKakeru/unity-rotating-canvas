@@ -26,7 +26,7 @@ public class BoardInput : MonoBehaviour
         drawTexture.filterMode = FilterMode.Point;
     }
 
-    public void Draw(Vector2 p, float thickness)
+    public void Draw(Vector2 p, int thickness)
     {
         for (int x = 0; x < drawTexture.width; x++)
         {
@@ -39,6 +39,15 @@ public class BoardInput : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void LiteDraw(Vector2 p, float thickness){
+        for (int x=0; x< thickness; x++){
+            for (int y=0; y<thickness; y++){
+                
+            }
+        }
+
     }
 
     public void LerpDraw(Vector2 point, Vector2 prevPoint)
