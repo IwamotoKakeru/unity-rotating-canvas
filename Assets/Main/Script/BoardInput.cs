@@ -52,6 +52,15 @@ public class BoardInput : MonoBehaviour
 
     public void LerpDraw(Vector2 point, Vector2 prevPoint)
     {
+        int lerpCount = 10;
+
+        for(int i=0;i<=lerpCount; i++){
+            float lerpWeight = (float)i/lerpCount;
+
+            Vector2 lerpPosition = Vector2.Lerp(point,prevPoint,lerpWeight);
+            Draw(lerpPosition,4);
+
+        }
 
     }
 
@@ -71,8 +80,7 @@ public class BoardInput : MonoBehaviour
             {
                 Vector2 uvPosition = hit.textureCoord * drawTexture.width;
                 if (prevUVPosition == Vector2.zero) prevUVPosition = uvPosition;
-
-                Draw(uvPosition, 4);
+                LerpDraw(uvPosition,prevUVPosition);
 
                 prevUVPosition = uvPosition;
             }
