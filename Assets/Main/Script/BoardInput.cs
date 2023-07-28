@@ -52,7 +52,7 @@ public class BoardInput : MonoBehaviour
 
     public void LerpDraw(Vector2 point, Vector2 prevPoint)
     {
-        int lerpCount = 10;
+        int lerpCount = 32;
 
         for(int i=0;i<=lerpCount; i++){
             float lerpWeight = (float)i/lerpCount;
@@ -88,6 +88,8 @@ public class BoardInput : MonoBehaviour
             drawTexture.SetPixels(buffer);
             drawTexture.Apply();
             GetComponent<Renderer>().material.mainTexture = drawTexture;
+        }else{
+            prevUVPosition = Vector2.zero;
         }
     }
 }
