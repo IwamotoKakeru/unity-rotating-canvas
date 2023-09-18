@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.scss";
 import { render, useGlobals } from "@reactunity/renderer";
 import { Slider } from "@reactunity/material";
+import ClearButton from "./ClearButton";
 
 function App() {
   // useGlobalの設定
@@ -55,6 +56,7 @@ function App() {
           value={rotationSpeed}
           onChange={handleRotationSpeed}
         />
+        <ClearButton />
       </scroll>
     </div>
   );

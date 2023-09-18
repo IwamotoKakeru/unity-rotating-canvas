@@ -26,14 +26,28 @@ public class BoardInput : MonoBehaviour
         drawTexture.filterMode = FilterMode.Point;
     }
 
-    public void Draw(Vector2 p, int thickness)
+    public void FillWhite()
     {
         for (int x = 0; x < drawTexture.width; x++)
         {
             for (int y = 0; y < drawTexture.height; y++)
             {
+                buffer.SetValue(Color.white, x + drawTexture.height * y);
+            }
+        }
+        Debug.Log("FillWhite");
+
+    }
+
+    public void Draw(Vector2 p, int thickness)
+    {
+        //画面全体をすべて走査しているため重たい...?
+        for (int x = 0; x < drawTexture.width; x++)
+        {
+            for (int y = 0; y < drawTexture.height; y++)
+            {
                 // 距離の二乗と太さの二乗を比較
-                if ((p - new Vector2(x, y)).sqrMagnitude < thickness*thickness)
+                if ((p - new Vector2(x, y)).sqrMagnitude < thickness * thickness)
                 {
                     buffer.SetValue(Color.black, x + drawTexture.height * y);
                 }
@@ -41,10 +55,13 @@ public class BoardInput : MonoBehaviour
         }
     }
 
-    public void LiteDraw(Vector2 p, float thickness){
-        for (int x=0; x< thickness; x++){
-            for (int y=0; y<thickness; y++){
-                
+    public void LiteDraw(Vector2 p, float thickness)
+    {
+        for (int x = 0; x < thickness; x++)
+        {
+            for (int y = 0; y < thickness; y++)
+            {
+
             }
         }
 
@@ -54,11 +71,12 @@ public class BoardInput : MonoBehaviour
     {
         int lerpCount = 32;
 
-        for(int i=0;i<=lerpCount; i++){
-            float lerpWeight = (float)i/lerpCount;
+        for (int i = 0; i <= lerpCount; i++)
+        {
+            float lerpWeight = (float)i / lerpCount;
 
-            Vector2 lerpPosition = Vector2.Lerp(point,prevPoint,lerpWeight);
-            Draw(lerpPosition,4);
+            Vector2 lerpPosition = Vector2.Lerp(point, prevPoint, lerpWeight);
+            Draw(lerpPosition, 4);
 
         }
 
@@ -80,7 +98,7 @@ public class BoardInput : MonoBehaviour
             {
                 Vector2 uvPosition = hit.textureCoord * drawTexture.width;
                 if (prevUVPosition == Vector2.zero) prevUVPosition = uvPosition;
-                LerpDraw(uvPosition,prevUVPosition);
+                LerpDraw(uvPosition, prevUVPosition);
 
                 prevUVPosition = uvPosition;
             }
@@ -88,7 +106,9 @@ public class BoardInput : MonoBehaviour
             drawTexture.SetPixels(buffer);
             drawTexture.Apply();
             GetComponent<Renderer>().material.mainTexture = drawTexture;
-        }else{
+        }
+        else
+        {
             prevUVPosition = Vector2.zero;
         }
     }
