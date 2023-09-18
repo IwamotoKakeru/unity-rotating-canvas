@@ -10,3 +10,7 @@
 1. Unityエディター上でPlayボタンをクリック
 
 ReactUnityの詳細については[公式GitHub](https://github.com/ReactUnity/full-sample)もしくは[公式ドキュメント](https://reactunity.github.io)をご確認ください。
+
+
+もし、zipファイルから動作させることができなければGitHubからのクローンをお試しください。
+[https://github.com/IwamotoKakeru/unity-rotating-canvas/]
