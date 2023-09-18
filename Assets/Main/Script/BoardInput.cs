@@ -69,7 +69,7 @@ public class BoardInput : MonoBehaviour
 
     public void LerpDraw(Vector2 point, Vector2 prevPoint)
     {
-        int lerpCount = 32;
+        int lerpCount = 16;
 
         for (int i = 0; i <= lerpCount; i++)
         {
