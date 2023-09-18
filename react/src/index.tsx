@@ -47,8 +47,9 @@ function App() {
           -
         </button>
         <Slider
-          className="Slider"
+          className="slider"
           direction="vertical"
+          step={INCREMENT_NUM}
           min={MIN_ROTATION_SPEED}
           max={MAX_ROTATION_SPEED}
           value={rotationSpeed}

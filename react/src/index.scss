@@ -1,5 +1,5 @@
 text {
-  font-size:100px;
+  font-size: 100px;
 }
 
 scroll {
@@ -10,23 +10,22 @@ scroll {
   height: 100%;
 }
 
-
 button {
-    font-size: 64px;
-    margin:8px;
-    color: white;
-    &.reset {
-      background-color: green;
-    }
-    &.minus{
-      background-color: blue;
-    }
-    &.plus{
-      background-color: red;
-    }
+  font-size: 64px;
+  margin: 8px;
+  background-color: white;
+  &.reset {
+    color: red;
+  }
+  &.minus {
+    color: red;
+  }
+  &.plus {
+    color: red;
+  }
 }
 
-Slider {
-  size: 256px;
+slider {
   background: transparent;
+  height: 1000px;
 }
