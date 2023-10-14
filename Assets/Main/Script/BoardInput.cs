@@ -33,15 +33,19 @@ public class BoardInput : MonoBehaviour
             for (int y = 0; y < drawTexture.height; y++)
             {
                 buffer.SetValue(Color.white, x + drawTexture.height * y);
+
             }
         }
+        drawTexture.SetPixels(buffer);
+        drawTexture.Apply();
+        GetComponent<Renderer>().material.mainTexture = drawTexture;
         Debug.Log("FillWhite");
 
     }
 
     public void Draw(Vector2 p, int thickness)
     {
-        //画面全体をすべて走査しているため重たい...?
+        //board全体をすべて走査しているため重たい...?
         for (int x = 0; x < drawTexture.width; x++)
         {
             for (int y = 0; y < drawTexture.height; y++)
